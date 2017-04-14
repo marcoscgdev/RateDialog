@@ -5,9 +5,9 @@ An android library to display a rate dialog in an easy way.
 
 ## Releases:
 
-#### Current release: 1.0.4.
+#### Current release: 1.0.1.
 
-You can see all the library releases [here](https://github.com/marcoscgdev/HeaderDialog/releases).
+You can see all the library releases [here](https://github.com/marcoscgdev/RateDialog/releases).
 
 ---
 
