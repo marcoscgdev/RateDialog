@@ -24,6 +24,18 @@ You can see all the library releases [here](https://github.com/marcoscgdev/Heade
 - Easy configuration
 - Fully material designed
 
+### Language
+
+RateDialog currently supports the following languages:
+
+- English (default)
+- Spanish
+- German
+- French
+- Portuguese
+
+More languages will be added.
+
 ---
 
 ## Usage:
@@ -65,6 +77,17 @@ Show the dialog instantly:
 
 ```
 RateDialog.show(this);
+```
+
+Custom dialog strings (just override it):
+
+```
+<string name="rate_dialog_title">Rate %s.</string>
+<string name="rate_dialog_message">If you enjoy using %s, please help us by rating it. It only takes a few seconds!</string>
+<string name="rate_dialog_action_rate">Rate</string>
+<string name="rate_dialog_action_never">No, thanks</string>
+<string name="rate_dialog_action_later">Later</string>
+<string name="rate_dialog_thank_you">Thank you!</string>
 ```
 
 ---
