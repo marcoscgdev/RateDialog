@@ -56,7 +56,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```
-N/A
+compile 'com.github.marcoscgdev:RateDialog:1.0.1'
 ```
 
 ### Creating the dialog
