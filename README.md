@@ -61,7 +61,7 @@ compile 'com.github.marcoscgdev:RateDialog:1.0.1'
 
 ### Creating the dialog
 
-Show the dialog each 3 days or each 7 launches (default config):
+Show the dialog each 3 days and each 7 launches (default config):
 
 ```
 RateDialog.with(this);
