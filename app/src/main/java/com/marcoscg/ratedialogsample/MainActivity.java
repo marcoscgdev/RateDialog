@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RateDialog.with(this); // Shows the dialog each 3 days or each 7 launches (default config)
+        RateDialog.with(this); // Shows the dialog each 3 days and each 7 launches (default config)
         //RateDialog.with(this, 2, 0);  // Shows the dialog with custom config. Use 0 to get the default value
     }
 
