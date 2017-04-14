@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name" translatable="false">RateDialog</string>
+
+    <string name="rate_dialog_title">Rate %s.</string>
+    <string name="rate_dialog_message">If you enjoy using %s, please help us by rating it. It only takes a few seconds!</string>
+    <string name="rate_dialog_action_rate">Rate</string>
+    <string name="rate_dialog_action_never">No, thanks</string>
+    <string name="rate_dialog_action_later">Later</string>
+    <string name="rate_dialog_thank_you">Thank you!</string>
+
+</resources>
