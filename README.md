@@ -35,6 +35,7 @@ RateDialog currently supports the following languages:
 - Portuguese
 
 More languages will be added.
+It would be great if you could help me with that. You can send me a translation request via email: *marcoscgdev@gmail.com*
 
 ---
 
