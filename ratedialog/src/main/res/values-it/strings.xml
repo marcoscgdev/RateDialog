@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="rate_dialog_title">Valutare %s.</string>
+    <string name="rate_dialog_message">Se vi piace utilizzando %s, per favore aiutateci con una valutazione. Ci vogliono solo pochi secondi!</string>
+    <string name="rate_dialog_action_rate">Valutare</string>
+    <string name="rate_dialog_action_never">No, grazie</string>
+    <string name="rate_dialog_action_later">Più tardi</string>
+    <string name="rate_dialog_thank_you">Grazie!</string>
+
+</resources>
