@@ -38,7 +38,7 @@ RateDialog currently supports the following languages:
 - Brazilian
 - Russian
 
-Translate this library into your language [!here]https://goo.gl/CFZzTh
+Translate this library into your language [here](https://goo.gl/CFZzTh).
 
 ---
 
