@@ -5,7 +5,7 @@ An android library to display a rate dialog in an easy way.
 
 ## Releases:
 
-#### Current release: 1.0.1.
+#### Current release: 1.0.2.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/RateDialog/releases).
 
@@ -32,10 +32,13 @@ RateDialog currently supports the following languages:
 - Spanish
 - German
 - French
+- Italian
+- Dutch
 - Portuguese
+- Brazilian
+- Russian
 
-More languages will be added.
-It would be great if you could help me with that. You can send me a translation request via email: *marcoscgdev@gmail.com*
+Translate this library into your language [here](https://goo.gl/CFZzTh).
 
 ---
 
@@ -57,7 +60,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```
-compile 'com.github.marcoscgdev:RateDialog:1.0.1'
+compile 'com.github.marcoscgdev:RateDialog:1.0.2'
 ```
 
 ### Creating the dialog
@@ -113,3 +116,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/marcoscgdev/RateDialog/badge.svg?style=beer-square)](https://beerpay.io/marcoscgdev/RateDialog)  [![Beerpay](https://beerpay.io/marcoscgdev/RateDialog/make-wish.svg?style=flat-square)](https://beerpay.io/marcoscgdev/RateDialog?focus=wish)
