@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="rate_dialog_title">%s\'ı değerlendir</string>
+    <string name="rate_dialog_message">Eğer uygulamayı beğendiysen, sadece birkaç dakikanı ayırıp bize oy vererek destek olabilirsin.</string>
+    <string name="rate_dialog_action_rate">Değerlendir</string>
+    <string name="rate_dialog_action_never">Hayır, teşekkürler</string>
+    <string name="rate_dialog_action_later">Sonra</string>
+    <string name="rate_dialog_thank_you">Teşekkürler!</string>
+
+</resources>
