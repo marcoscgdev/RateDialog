@@ -5,7 +5,7 @@ An android library to display a rate dialog in an easy way.
 
 ## Releases:
 
-#### Current release: 1.0.3.
+#### Current release: 1.0.4.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/RateDialog/releases).
 
@@ -38,6 +38,7 @@ RateDialog currently supports the following languages:
 - Brazilian
 - Russian
 - Polish
+- Turkish
 
 Translate this library into your language [here](https://goo.gl/CFZzTh).
 
@@ -61,7 +62,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```
-compile 'com.github.marcoscgdev:RateDialog:1.0.3'
+compile 'com.github.marcoscgdev:RateDialog:1.0.4'
 ```
 
 ### Creating the dialog
