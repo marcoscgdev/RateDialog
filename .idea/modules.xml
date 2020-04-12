@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RateDialogSample.iml" filepath="$PROJECT_DIR$/RateDialogSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ratedialog/ratedialog.iml" filepath="$PROJECT_DIR$/ratedialog/ratedialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RateDialog.iml" filepath="$PROJECT_DIR$/RateDialog.iml" group="RateDialog" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="RateDialog/app" />
+      <module fileurl="file://$PROJECT_DIR$/ratedialog/ratedialog.iml" filepath="$PROJECT_DIR$/ratedialog/ratedialog.iml" group="RateDialog/ratedialog" />
     </modules>
   </component>
 </project>

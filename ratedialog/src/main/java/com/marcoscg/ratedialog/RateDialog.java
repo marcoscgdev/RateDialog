@@ -17,77 +17,53 @@ import android.widget.Toast;
 
 public class RateDialog {
 
-    private static int DAYS_UNTIL_PROMPT = 3;
-    private static int LAUNCHES_UNTIL_PROMPT = 7;
+    private static String DEFAULT_DIALOG_KEY = "ratedialog";
 
-    private static AlertDialog dialog;
+    private int DAYS_UNTIL_PROMPT = 3;
+    private int LAUNCHES_UNTIL_PROMPT = 7;
 
-    private static SharedPreferences prefs;
-    private static SharedPreferences.Editor editor;
+    private AlertDialog dialog;
+    private Activity activity;
+    private String dialogKey;
 
-    public static RateDialog with(Activity activity) {
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
 
-        prefs = activity.getSharedPreferences("ratedialog", 0);
-        editor = prefs.edit();
-
-        if (prefs.getBoolean("dontshowagain", false)) { return new RateDialog(); }
-
-        long launch_count = prefs.getLong("launch_count", 0) + 1;
-        editor.putLong("launch_count", launch_count);
-
-        Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
-        if (date_firstLaunch == 0) {
-            date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("date_firstlaunch", date_firstLaunch);
-        }
-
-        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= date_firstLaunch +
-                    (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
-                show(activity);
-            }
-        }
-
-        editor.commit();
-
-        return new RateDialog();
+    public RateDialog(Activity activity, String dialogKey) {
+        init(activity, dialogKey, 0, 0);
     }
 
-    public static RateDialog with(Activity activity, int daysUntilPrompt, int launchesUntilPrompt) {
-
-        if (daysUntilPrompt > 0)
-            DAYS_UNTIL_PROMPT = daysUntilPrompt;
-        if (launchesUntilPrompt > 0)
-            LAUNCHES_UNTIL_PROMPT = launchesUntilPrompt;
-
-        prefs = activity.getSharedPreferences("ratedialog", 0);
-        editor = prefs.edit();
-
-        if (prefs.getBoolean("dontshowagain", false)) { return new RateDialog(); }
-
-        long launch_count = prefs.getLong("launch_count", 0) + 1;
-        editor.putLong("launch_count", launch_count);
-
-        Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
-        if (date_firstLaunch == 0) {
-            date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("date_firstlaunch", date_firstLaunch);
-        }
-
-        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= date_firstLaunch +
-                    (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
-                show(activity);
-            }
-        }
-
-        editor.commit();
-
-        return new RateDialog();
+    public RateDialog(Activity activity) {
+        init(activity, DEFAULT_DIALOG_KEY, 0, 0);
     }
 
-    public static RateDialog show(final Activity activity) {
+    public RateDialog(Activity activity, String dialogKey, int daysUntilPrompt, int launchesUntilPrompt) {
+        init(activity, dialogKey, daysUntilPrompt, launchesUntilPrompt);
+    }
 
+    public RateDialog(Activity activity, int daysUntilPrompt, int launchesUntilPrompt) {
+        init(activity, DEFAULT_DIALOG_KEY, daysUntilPrompt, launchesUntilPrompt);
+    }
+
+    /**
+     * Static methods
+     */
+    public static void with(Activity activity) {
+        with(activity, 0, 0);
+    }
+
+    public static void with(Activity activity, int daysUntilPrompt, int launchesUntilPrompt) {
+        new RateDialog(activity, DEFAULT_DIALOG_KEY, daysUntilPrompt, launchesUntilPrompt);
+    }
+
+    public static void show(Activity activity) {
+        new RateDialog(activity, DEFAULT_DIALOG_KEY).showDialog();
+    }
+
+    /**
+     * Public methods
+     */
+    public void showDialog() {
         LayoutInflater inflater = activity.getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_layout, null);
 
@@ -95,7 +71,7 @@ public class RateDialog {
         TextView message = (TextView) view.findViewById(R.id.message);
 
         title.setText(String.format(activity.getResources().getString(R.string.rate_dialog_title), activity.getResources().getString(R.string.app_name)));
-        message.setText(String.format(activity.getResources().getString(R.string.rate_dialog_message), activity.getResources().getString(R.string.app_name)));
+        message.setText(activity.getString(R.string.rate_dialog_message, activity.getResources().getString(R.string.app_name)));
 
         dialog = new AlertDialog.Builder(activity)
                 .setView(view)
@@ -134,13 +110,46 @@ public class RateDialog {
 
         negativebt.setPadding(dpToPx(12, activity),0,dpToPx(12, activity),0);
         negativebt.setTypeface(tf);
-
-        return new RateDialog();
     }
 
-    private static void neverShow() {
+    /**
+     * Private methods
+     */
+    private void init(Activity activity, String dialogKey, int daysUntilPrompt, int launchesUntilPrompt) {
+        if (daysUntilPrompt > 0)
+            DAYS_UNTIL_PROMPT = daysUntilPrompt;
+        if (launchesUntilPrompt > 0)
+            LAUNCHES_UNTIL_PROMPT = launchesUntilPrompt;
+
+        this.activity = activity;
+        this.dialogKey = dialogKey;
+        prefs = activity.getSharedPreferences(dialogKey, 0);
+        editor = prefs.edit();
+
+        if (prefs.getBoolean(dialogKey + "dontshowagain", false)) { return; }
+
+        long launch_count = prefs.getLong(dialogKey + "launch_count", 0) + 1;
+        editor.putLong(dialogKey + "launch_count", launch_count);
+
+        long date_firstLaunch = prefs.getLong(dialogKey + "date_firstlaunch", 0);
+        if (date_firstLaunch == 0) {
+            date_firstLaunch = System.currentTimeMillis();
+            editor.putLong(dialogKey + "date_firstlaunch", date_firstLaunch);
+        }
+
+        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
+            if (System.currentTimeMillis() >= date_firstLaunch +
+                    (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
+                show(activity);
+            }
+        }
+
+        editor.apply();
+    }
+
+    private void neverShow() {
         if (editor != null) {
-            editor.putBoolean("dontshowagain", true);
+            editor.putBoolean(dialogKey + "dontshowagain", true);
             editor.commit();
         }
     }
