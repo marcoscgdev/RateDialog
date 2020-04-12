@@ -95,22 +95,24 @@ RateDialog.showDialog(this);
 ### Creating custom dialog instance
 
 ```java
-RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog");
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog_key");
 rateDialog.init();
 ```
 
 You can also use custom config
 
 ```java
-RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog", daysUntilPrompt, launchesUntilPrompt);
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog_key", daysUntilPrompt, launchesUntilPrompt);
 ```
 
 Show the custom dialog instantly:
 
 ```java
-RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog");
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog_key");
 rateDialog.showDialog();
 ```
+
+**NOTE:** Use a different dialog key for each dialog instance.
 
 Custom dialog strings (just override it):
 
