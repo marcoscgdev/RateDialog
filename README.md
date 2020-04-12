@@ -70,19 +70,26 @@ implementation 'com.github.marcoscgdev:RateDialog:1.0.6'
 Show the dialog each 3 days and each 7 launches (default config):
 
 ```java
-RateDialog.with(this);
+RateDialog.init(this);
 ```
 
-Shows the dialog with custom config. Use 0 to get the default value:
+Shows the dialog with custom config:
 
 ```java
-RateDialog.with(this, 2, 0); // daysUntilPrompt, launchesUntilPrompt
+RateDialog.init(this, 2, 0); // daysUntilPrompt, launchesUntilPrompt
+```
+
+You can also get the default config values:
+
+```java
+RateDialog.DEFAULT_DAYS_UNTIL_PROMPT
+RateDialog.DEFAULT_LAUNCHES_UNTIL_PROMPT
 ```
 
 Show the dialog instantly:
 
 ```java
-RateDialog.show(this);
+RateDialog.showDialog(this);
 ```
 
 ### Creating custom dialog instance
