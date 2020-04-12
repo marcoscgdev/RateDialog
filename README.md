@@ -5,7 +5,7 @@ An android library to display a rate dialog in an easy way.
 
 ## Releases:
 
-#### Current release: 1.0.5.
+#### Current release: 1.0.6.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/RateDialog/releases).
 
@@ -50,7 +50,7 @@ Translate this library into your language [here](https://goo.gl/CFZzTh).
 
 Add this to your root *build.gradle* file:
 
-```
+```groovy
 allprojects {
     repositories {
         ...
@@ -61,28 +61,55 @@ allprojects {
 
 Now add the dependency to your app build.gradle file:
 
-```
-implementation 'com.github.marcoscgdev:RateDialog:1.0.5'
+```groovy
+implementation 'com.github.marcoscgdev:RateDialog:1.0.6'
 ```
 
 ### Creating the dialog
 
 Show the dialog each 3 days and each 7 launches (default config):
 
-```
-RateDialog.with(this);
+```java
+RateDialog.init(this);
 ```
 
-Shows the dialog with custom config. Use 0 to get the default value:
+Shows the dialog with custom config:
 
+```java
+RateDialog.init(this, 2, 0); // daysUntilPrompt, launchesUntilPrompt
 ```
-RateDialog.with(this, 2, 0); // daysUntilPrompt, launchesUntilPrompt
+
+You can also get the default config values:
+
+```java
+RateDialog.DEFAULT_DAYS_UNTIL_PROMPT
+RateDialog.DEFAULT_LAUNCHES_UNTIL_PROMPT
 ```
 
 Show the dialog instantly:
 
+```java
+RateDialog.showDialog(this);
 ```
-RateDialog.show(this);
+
+### Creating custom dialog instance
+
+```java
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog");
+rateDialog.init();
+```
+
+You can also use custom config
+
+```java
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog", daysUntilPrompt, launchesUntilPrompt);
+```
+
+Show the custom dialog instantly:
+
+```java
+RateDialog rateDialog = new RateDialog(this, "custom_rate_dialog");
+rateDialog.showDialog();
 ```
 
 Custom dialog strings (just override it):
@@ -104,7 +131,7 @@ Custom dialog strings (just override it):
 ## License
 
 ```
-Copyright 2017 Marcos Calvo García
+Copyright 2020 Marcos Calvo García
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
