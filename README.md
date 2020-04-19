@@ -5,7 +5,7 @@ An android library to display a rate dialog in an easy way.
 
 ## Releases:
 
-#### Current release: 1.0.6.
+#### Current release: 1.0.7.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/RateDialog/releases).
 
@@ -62,7 +62,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```groovy
-implementation 'com.github.marcoscgdev:RateDialog:1.0.6'
+implementation 'com.github.marcoscgdev:RateDialog:1.0.7'
 ```
 
 ### Creating the dialog
